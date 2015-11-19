@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="vk_main">#1142ff</color>
+    <color name="friend_base_panel_background_color">#ff292929</color>
+
+    <color name="nav_drawer_background">#454545</color>
+    <color name="blue">#FF33B5E5</color>
+
+</resources>

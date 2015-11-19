@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/list_item_horizontal_margin"
+                android:layout_marginRight="@dimen/list_item_horizontal_margin">
+
+    <LinearLayout
+        android:id="@+id/friend_list_item_main_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/friend_list_item_avatar"
+            android:layout_width="@dimen/friend_list_item_avatar_size"
+            android:layout_height="@dimen/friend_list_item_avatar_size"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/friend_list_item_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/friend_list_item_name_horizontal_margin"
+            android:layout_marginRight="@dimen/friend_list_item_name_horizontal_margin"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/friend_list_item_is_online"
+            android:layout_gravity="center_vertical"
+            android:layout_width="@dimen/friend_list_item_is_online_image_size"
+            android:layout_height="@dimen/friend_list_item_is_online_image_size"
+            android:src="@drawable/online_status"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_below="@+id/friend_list_item_main_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/friend_list_item_separator_height"
+        android:background="@android:color/darker_gray"/>
+
+</RelativeLayout>
