@@ -36,7 +36,7 @@ public class UserRepository {
                 contentValues.put(DBSchema.USERS_LAST_NAME, user.getLastName());
                 contentValues.put(DBSchema.USERS_ID, user.getUid());
                 contentValues.put(DBSchema.USERS_PHOTO_100, user.getPhotoURL());
-                contentValues.put(DBSchema.USERS_STATUS_ONLINE, user.getStatusOnline());
+                contentValues.put(DBSchema.USERS_STATUS_ONLINE, user.getOnline());
 
                 mDatabase.insert(DBSchema.USERS_TABLE, null, contentValues);
             }
@@ -51,7 +51,7 @@ public class UserRepository {
                 contentValues.put(DBSchema.USERS_FIRST_NAME, user.getFirstName());
                 contentValues.put(DBSchema.USERS_LAST_NAME, user.getLastName());
                 contentValues.put(DBSchema.USERS_PHOTO_100, user.getPhotoURL());
-                contentValues.put(DBSchema.USERS_STATUS_ONLINE, user.getStatusOnline());
+                contentValues.put(DBSchema.USERS_STATUS_ONLINE, user.getOnline());
 
                 mDatabase.update(DBSchema.USERS_TABLE, contentValues, "uid=?",
                         new String[]{String.valueOf(user.getUid())});
@@ -85,7 +85,7 @@ public class UserRepository {
                     user.setLastName(cursor.getString(lastNameIndex));
                     user.setUid(cursor.getLong(uidIndex));
                     user.setPhotoURL(cursor.getString(photo100Index));
-                    user.setStatusOnline(cursor.getInt(statusOnlineIndex));
+                    user.setOnline(cursor.getInt(statusOnlineIndex));
 
                     friends.add(user);
                 } while (cursor.moveToNext());
@@ -109,7 +109,7 @@ public class UserRepository {
         contentValues.put(DBSchema.USERS_LAST_NAME, user.getLastName());
         contentValues.put(DBSchema.USERS_ID, user.getUid());
         contentValues.put(DBSchema.USERS_PHOTO_100, user.getPhotoURL());
-        contentValues.put(DBSchema.USERS_STATUS_ONLINE, user.getStatusOnline());
+        contentValues.put(DBSchema.USERS_STATUS_ONLINE, user.getOnline());
 
         mDatabase.insertWithOnConflict(DBSchema.USERS_TABLE, null,
                 contentValues, SQLiteDatabase.CONFLICT_REPLACE);

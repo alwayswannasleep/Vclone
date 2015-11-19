@@ -9,8 +9,6 @@ public class ApiRequestBuilder {
 
     public static final String VK_METHOD_FRIENDS_GET = "friends.get?";
 
-    public static final String VK_METHOD_FRIENDS_GET_ONLINE = "friends.getOnline?";
-
     public static final String VK_METHOD_GROUPS_GET = "groups.get?";
 
     public static final String VK_METHOD_USERS_GET = "users.get?";
@@ -20,8 +18,6 @@ public class ApiRequestBuilder {
     public static final String VK_ACCESS_TOKEN = "access_token=";
 
     public static final String VK_USERS_GET_FIELDS = "fields=";
-
-    public static final String VK_USERS_GET_IDS = "user_ids=";
 
     public static final String VK_FRIENDS_GET_ORDER = "order=";
 
@@ -33,9 +29,11 @@ public class ApiRequestBuilder {
 
     public static final String VK_API_VERSION_VALUE = "5.37";
 
-    public static final String VK_USER_ID = "user_id";
+    public static final String VK_USER_ID = "user_id=";
 
-    public static final String VK_OWNER_ID = "owner_id";
+    public static final String VK_OWNER_ID = "owner_id=";
+
+    public static final String VK_USER_IDS = "user_ids=";
 
     private String mApiMethod;
 

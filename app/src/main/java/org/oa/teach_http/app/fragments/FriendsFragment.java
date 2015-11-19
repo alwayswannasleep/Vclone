@@ -72,7 +72,7 @@ public class FriendsFragment extends NavDrawerFragment {
         List<User> list = new ArrayList<User>();
 
         for (User item : items) {
-            if (item.getStatusOnline() == Constants.STATUS_ONLINE) {
+            if (item.getOnline() == Constants.STATUS_ONLINE) {
                 list.add(item);
             }
         }

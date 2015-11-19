@@ -41,7 +41,7 @@ public class FriendsAdapter extends ArrayAdapter<User> {
 
         ImageUtils.loadImage(fAvatarView, user.getPhotoURL());
 
-        if (user.getStatusOnline() == Constants.STATUS_ONLINE) {
+        if (user.getOnline() == Constants.STATUS_ONLINE) {
             fIsOnlineView.setVisibility(View.VISIBLE);
         } else {
             fIsOnlineView.setVisibility(View.INVISIBLE);
