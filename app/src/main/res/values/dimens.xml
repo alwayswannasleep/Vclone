@@ -32,5 +32,7 @@
     <!-- Navigation Drawer -->
 
     <dimen name="nav_drawer_width">260dp</dimen>
+    <dimen name="circular_progress_bar_size">50dp</dimen>
+    <dimen name="app_toolbar_elevation">4dp</dimen>
 
 </resources>

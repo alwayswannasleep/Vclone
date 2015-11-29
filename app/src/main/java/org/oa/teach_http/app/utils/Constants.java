@@ -24,4 +24,6 @@ public class Constants {
     public static final int GROUPS_MAIN_LIST = 0;
 
     public static final int GROUPS_EVENTS_LIST = 1;
+
+    public static final String EXTRA_USER = "extra_user";
 }

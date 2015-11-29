@@ -2,10 +2,11 @@ package org.oa.teach_http.app.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 
-public class User {
+public class User implements Serializable {
 
     @SerializedName("id")
     private long mUid;

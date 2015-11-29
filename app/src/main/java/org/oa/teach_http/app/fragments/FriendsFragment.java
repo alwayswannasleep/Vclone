@@ -1,15 +1,18 @@
 package org.oa.teach_http.app.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.oa.teach_http.app.R;
 import org.oa.teach_http.app.activity.MainActivity;
+import org.oa.teach_http.app.activity.UserActivity;
 import org.oa.teach_http.app.adapters.FriendsAdapter;
 import org.oa.teach_http.app.models.User;
 import org.oa.teach_http.app.storage.StorageResponseListener;
@@ -47,6 +50,22 @@ public class FriendsFragment extends NavDrawerFragment {
     public void onStart() {
         super.onStart();
 
+        refreshData();
+    }
+
+    private ArrayList<User> getFriendsOnline(List<User> items) {
+        List<User> list = new ArrayList<User>();
+
+        for (User item : items) {
+            if (item.getOnline() == Constants.STATUS_ONLINE) {
+                list.add(item);
+            }
+        }
+
+        return (ArrayList<User>) list;
+    }
+
+    private void refreshData() {
         ((MainActivity) getActivity()).getStorage().getFriends(new StorageResponseListener<User>() {
             @Override
             public void onResponse(List<User> items, int responseType) {
@@ -66,18 +85,6 @@ public class FriendsFragment extends NavDrawerFragment {
                 mSlidingTabLayout.setViewPager(mViewPager);
             }
         });
-    }
-
-    private ArrayList<User> getFriendsOnline(List<User> items) {
-        List<User> list = new ArrayList<User>();
-
-        for (User item : items) {
-            if (item.getOnline() == Constants.STATUS_ONLINE) {
-                list.add(item);
-            }
-        }
-
-        return (ArrayList<User>) list;
     }
 
     private class FriendsPagerAdapter extends PagerAdapter {
@@ -111,6 +118,17 @@ public class FriendsFragment extends NavDrawerFragment {
 
             ListView listView = (ListView) view.findViewById(R.id.friends_list);
             listView.setAdapter(new FriendsAdapter(getContext(), mFriends.get(position)));
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    User user = (User) parent.getItemAtPosition(position);
+
+                    Intent intent = new Intent(getContext(), UserActivity.class);
+                    intent.putExtra(Constants.EXTRA_USER, user);
+
+                    startActivity(intent);
+                }
+            });
 
             return view;
         }

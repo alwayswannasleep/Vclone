@@ -23,6 +23,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".activity.UserActivity"/>
 
         <service android:name=".service.ApiService"/>
         <service android:name=".service.MediaService"/>
